@@ -36,11 +36,12 @@ console.log(haiku);
 app.get("/", (req, res) => {
   res.send(`<head><title>hAIku</title></head>
   <body style="margin: 0;">
-    <div style="border: 1px solid black; height: 10vh; background-color: lightblue">
+    <div style="color: darkblue; border: 2px solid darkblue; height: 10vh; background-color: lightblue">
         <h2 style="text-align: center;">h[AI]ku</h2>
     </div>
-    <h1 style="color: darkblue">${haiku}</h1>
+    <h1 style="position: relative; padding: 10px; left: 30px; color: darkblue; border: 2px solid darkblue; border-radius: 10px; height: 7vh; width: 50%; background-color: lightblue">${haiku}</h1>
 </body>`);
 });
 
 app.listen(process.env.PORT);
+
