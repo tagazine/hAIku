@@ -1,3 +1,4 @@
+require("dotenv").config();
 const syllables = require("syllables");
 const randomWord = require("random-words");
 const express = require("express");
@@ -25,9 +26,8 @@ function createLine(num) {
   let total = 0;
   line = "";
   pushLine(num, total);
-  haiku = haiku  + line.charAt(0).toUpperCase() + line.slice(1)+ "<br>";
+  haiku = haiku + line.charAt(0).toUpperCase() + line.slice(1) + "<br>";
 }
-
 
 createLine(5);
 createLine(7);
@@ -39,9 +39,8 @@ app.get("/", (req, res) => {
     <div style="border: 1px solid black; height: 10vh; background-color: lightblue">
         <h2 style="text-align: center;">h[AI]ku</h2>
     </div>
-    <h1 style="color: darkblue">${
-      haiku
-    }</h1>
+    <h1 style="color: darkblue">${haiku}</h1>
 </body>`);
 });
-app.listen(3000);
+
+app.listen(process.env.PORT);
