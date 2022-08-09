@@ -34,24 +34,38 @@ createLine(5);
 createLine(7);
 createLine(5);
 
-function refresh(){
+function refresh() {
+  haiku = "";
   createLine(5);
   createLine(7);
   createLine(5);
 }
 
-console.log(haiku);
 app.get("/", (req, res) => {
   res.send(`<head><title>hAIku</title></head>
   <body style="margin: 0;">
-    <div style="color: darkblue; border: 2px solid darkblue; height: 10vh; background-color: lightblue">
-        <h1 style="text-align: center;">h[AI]ku</h1>
-        <form method="refresh()" action="/"> 
-        <button id="button">Refresh</button>
-        </form>
+    <div style="color: darkblue; border: 2px solid darkblue; height: 23vh; background-color: lightblue">
+      <h1 style="text-align: center;">h[AI]ku</h1>
+      <h2 style="text-align: center;">by</h2>
+      <h2 style="text-align: center;">Jack Platitude</h2>
     </div>
     
-    <h2 style="position: relative; left: 20px; padding-left: 30px; padding-top: 30px; color: darkblue; border: 2px solid darkblue; border-radius: 10px; height: 7vh; width: 50%; background-color: lightblue">${haiku}</h2>
+    <h2 style="position: relative; left: 20px; padding-left: 30px; padding-top: 10px; color: darkblue; border: 2px solid darkblue; border-radius: 10px; height: 12vh; width: 50%; background-color: lightblue">${haiku}</h2>
+
+    <form method="${refresh()}" action="/"> 
+      <button style="color: darkblue; border: 2px solid darkblue; background-color: lightblue; border-radius: 5px; margin-left: 10px;" id="button">Refresh</button>
+    </form>
+
+    <div style="color: darkblue; border: 2px solid darkblue; height: 25vh; background-color: lightblue">
+      <h2 style="text-align: left;">Coming soon:</h1>
+      <ul>
+        <li>Punctuation</li>
+        <li>Rating System</li>
+        <li>Database for Haikus</li>
+        <li>Poetry Machine-Learning</li>
+        <li>Matching Art</li>
+      </ol>
+    </div>
 </body>`);
 });
 
